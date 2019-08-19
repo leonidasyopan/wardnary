@@ -1,3 +1,4 @@
+<?php include('server.php') ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -15,7 +16,7 @@
 <body>
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form action="register.php" method="POST" id="register-form">
+		<form action="login.php" method="POST" id="register-form">
             <h1>Criar conta</h1>
             <!-- 
 			<div class="social-container">
