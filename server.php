@@ -18,13 +18,18 @@
         $password_1 = mysqli_real_escape_string($db, $_POST['password1']);
         $password_2 = mysqli_real_escape_string($db, $_POST['password2']);
 
+        // DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
+        date_default_timezone_set('America/Sao_Paulo');
+
+        $user_create_date = strftime("%B %d, %Y"); // date the user was created
+
         // form validation: ensure that the form is correctly filled ...
         // by adding (array_push()) corresponding error unto $errors array
-        if (empty($username)) { array_push($errors_register, "Usuário é um campo necessário"); }
-        if (empty($email)) { array_push($errors_register, "E-mail é um campo necessário"); }
-        if (empty($password_1)) { array_push($errors_register, "Senha é um campo necessário"); }
+        if (empty($username)) { array_push($errors_register, "Escolha um usuário"); }
+        if (empty($email)) { array_push($errors_register, "Preencha o e-mail"); }
+        if (empty($password_1)) { array_push($errors_register, "Defina sua senha"); }
         if ($password_1 != $password_2) {
-        array_push($errors_register, "As duas senhas não são correspondentes");
+        array_push($errors_register, "As duas senhas não correspondem");
         }
 
         // first check the database to make sure 
@@ -47,8 +52,8 @@
         if (count($errors_register) == 0) {
         $password = md5($password_1);//encrypt the password before saving in the database
 
-        $query = "INSERT INTO users (username, email, password) 
-                    VALUES('$username', '$email', '$password')";
+        $query = "INSERT INTO users (username, email, password, user_create_date) 
+                    VALUES('$username', '$email', '$password', '$user_create_date')";
         mysqli_query($db, $query);
         $_SESSION['username'] = $username;
         $_SESSION['success'] = "Parabéns, agora você está logado.";

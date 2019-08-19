@@ -1,7 +1,7 @@
 <?php  if (count($errors_register) > 0) : ?>
-    <div class="error">
+    <div class="error-message-div">
     <?php foreach ($errors_register as $error) : ?>
-        <p><?php echo $error ?></p>
+        <p class="error-message-paragraph"><?php echo $error ?></p>
     <?php endforeach ?>
     </div>
 <?php  endif ?>

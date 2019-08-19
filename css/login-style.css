@@ -231,3 +231,19 @@ input {
 	height: 40px;
 	width: 40px;
 }
+
+.error-message-div {
+	margin: 10px 0;
+	padding: 0;
+	border: 0;
+
+}
+
+.error-message-paragraph {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: .8em;
+	color: rgb(226, 79, 79);
+	font-weight: bold;
+}
