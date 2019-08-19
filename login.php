@@ -26,16 +26,20 @@
             </div>
             -->
             <span>Use seu e-mail para se cadastrar</span>
+
+            <?php include('errors_register.php'); ?>
+
             <fieldset>
-                <input type="text" name="name" id="name" placeholder="Nome completo" />
-                <input type="email" name="email" id="email" placeholder="E-mail" />
-                <input type="password" name="password" id="password" placeholder="Senha" />
-                <button>Cadastre-se</button>
+                <input type="text" name="username" id="username" placeholder="Usuário" value="<?php echo $username; ?>">
+                <input type="email" name="email" id="email" placeholder="E-mail" value="<?php echo $email; ?>">
+                <input type="password" name="password1" id="password1" placeholder="Senha">
+                <input type="password" name="password2" id="password2" placeholder="Repetir Senha">
+                <button type="submit" class="btn" name="reg_user">Cadastre-se</button>
             </fieldset>
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
-		<form action="checklogin.php" method="POST" id="login-form">
+		<form action="login.php" method="POST" id="login-form">
             <h1>Login</h1>
             <!-- 
 			<div class="social-container">
@@ -45,11 +49,14 @@
             </div>
             -->
             <span>Use sua conta para fazer login</span>
+
+            <?php include('errors_login.php'); ?>
+
             <fieldset>
-                <input type="email" name="email" id="email" placeholder="E-mail" />
+                <input type="text" name="username" id="username" placeholder="Usuário" />
                 <input type="password" name="password" id="password" placeholder="Senha" />
                 <a href="#">Esqueceu sua senha?</a>
-                <button>Login</button>
+                <button type="submit" class="btn" name="login_user">Login</button>
             </fieldset>
 		</form>
 	</div>
