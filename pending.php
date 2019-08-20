@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login | Wardnary | Conectando os membros e a história das unidades da igreja</title>  
+    <title>Token de recuperação pendente | Wardnary | Conectando os membros e a história das unidades da igreja</title>  
 
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/wardnary/common/head-imports.php'; ?>
 
@@ -17,14 +17,7 @@
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
 		<form action="login.php" method="POST" id="register-form">
-            <h1>Criar conta</h1>
-            <!-- 
-			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-            -->
+            <h1>Criar conta</h1>            
             <span>Use seu e-mail para se cadastrar</span>
 
             <?php include('errors_register.php'); ?>
@@ -39,33 +32,29 @@
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
-		<form action="login.php" method="POST" id="login-form">
-            <h1>Login</h1>
-            <!-- 
-			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-            -->
-            <span>Use sua conta para fazer login</span>
+		<form action="login.php" method="POST" id="pending-email-form">
+            <h1>E-mail enviado com sucesso</h1>
 
-            <?php include('errors_login.php'); ?>
+            <p>
+                Nós enviamos um e-mail para  <b><?php echo $_GET['email'] ?></b>. 
+            </p>
 
-            <fieldset>
-                <input type="text" name="username" id="username" placeholder="Usuário" />
-                <input type="password" name="password" id="password" placeholder="Senha" />
-                <a href="enter_email.php">Esqueceu sua senha?</a>
-                <button type="submit" class="btn" name="login_user">Login</button>
-            </fieldset>
-		</form>
+            <p>Por favor acesse seu e-mail e siga as instruções para resetar sua senha.</p>
+            
+        </form>
+        
+        
+
+
+
+
 	</div>
 	<div class="overlay-container">
 		<div class="overlay">
 			<div class="overlay-panel overlay-left">
-				<h1>Bem-vindo(a)!</h1>
-				<p>Se você já tem uma conta, clique aqui para fazer seu login.</p>
-				<button class="ghost" id="signIn">Login</button>
+				<h1>Não lembra a senha?</h1>
+				<p>Se você esqueceu sua senha, clique aqui para enviar um e-mail de recuperação.</p>
+				<button class="ghost" id="signIn">Recuperar Senha</button>
 			</div>
 			<div class="overlay-panel overlay-right">
 				<h1>Olá, irmão(ã)!</h1>
