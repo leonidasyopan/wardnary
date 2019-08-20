@@ -109,7 +109,7 @@
 
     if (count($errors_email) == 0) {
         // store token in the password-reset database table against the user's email
-        $sql = "INSERT INTO password_reset(email, token) VALUES ('$email', '$token')";
+        $sql = "INSERT INTO password_resets(email, token) VALUES ('$email', '$token')";
         $results = mysqli_query($db, $sql);
 
         // Send email to user with the token in a link they can click on
